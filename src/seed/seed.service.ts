@@ -3,10 +3,16 @@ import axios, { AxiosInstance } from 'axios';
 import { PokeResponse } from './interfaces/poke-response.interface';
 import { PokemonService } from 'src/pokemon/pokemon.service';
 import { CreatePokemonDto } from 'src/pokemon/dto/create-pokemon.dto';
+import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class SeedService {
-  constructor(private readonly pokemonService: PokemonService) {}
+  constructor(
+    @InjectModel(Pokemon.name)
+    private readonly pokemonModel: Model<Pokemon>,
+  ) {}
 
   private readonly axios: AxiosInstance = axios;
 
@@ -18,10 +24,9 @@ export class SeedService {
     data.results.forEach(async ({ name, url }) => {
       const segments = url.split('/');
       const no = +segments[segments.length - 2];
-      const createPokemonDto: CreatePokemonDto = { name, no };
-      await this.pokemonService.create(createPokemonDto);
+      await this.pokemonModel.create({ name, no });
     });
 
-    return data.results;
+    return 'Seed executed!';
   }
 }
