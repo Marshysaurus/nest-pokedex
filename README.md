@@ -1,5 +1,7 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://mongodb.com" target="blank"><img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" width="200" alt="MongoDB Logo" /></a>
+  <a href="https://www.docker.com/" target="blank"><img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" width="200" alt="Docker Logo" /></a>
 </p>
 
 # Ejecutar en desarrollo
@@ -27,3 +29,4 @@ docker-compose up -d
 
 - MongoDB
 - Nest
+- Docker
