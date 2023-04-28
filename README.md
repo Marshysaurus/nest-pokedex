@@ -7,7 +7,7 @@
 # Ejecutar en desarrollo
 
 1. Clonar el repositorio
-2. Ejecutar
+2. Instalar dependencias del proyecto
 
 ```
 yarn install
@@ -25,7 +25,13 @@ npm i -g @nestjs/cli
 docker-compose up -d
 ```
 
-5. Reconstruir la base de datos con la semilla
+5. Levantar proyecto de Nest
+
+```
+yarn start:dev
+```
+
+6. Reconstruir la base de datos con la semilla
 
 ```
 http://localhost:3000/api/seed
